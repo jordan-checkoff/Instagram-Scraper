@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import requests
 
+WAIT_TIME = 10
+
 
 def scrape_image(url):
     src = get_src(url)
@@ -25,7 +27,7 @@ def get_driver(url):
     options.add_argument("--headless=new")
 
     driver = webdriver.Chrome(options)
-    driver.implicitly_wait(0.5)
+    driver.implicitly_wait(WAIT_TIME)
 
     driver.get(url)
 
